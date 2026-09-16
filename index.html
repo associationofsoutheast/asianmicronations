@@ -3,280 +3,384 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ASEAM — regional cooperation, friendship and cultural exchange among Southeast Asian micronations.">
-  <title>ASEAM — Association of Southeast Asian Micronations</title>
+  <meta name="description" content="Official website of the Association of Southeast Asian Micronations (ASEAM).">
+  <meta name="theme-color" content="#062a3b">
+  <title>ASEAM | Association of Southeast Asian Micronations</title>
   <link rel="icon" type="image/png" href="IMG_1928.png">
   <link rel="apple-touch-icon" href="IMG_1928.png">
   <style>
     :root {
-      --blue: #062c68;
-      --blue-2: #0a468f;
-      --red: #df1f26;
-      --yellow: #f7c900;
-      --ink: #12213b;
-      --paper: #fffef9;
-      --muted: #637087;
-      --line: #dce2ea;
-      --max: 1180px;
+      --navy: #062a3b;
+      --navy-2: #0b4057;
+      --red: #d52b1e;
+      --yellow: #f6c744;
+      --turquoise: #17bebb;
+      --green: #0b8f61;
+      --ink: #14232c;
+      --muted: #60717b;
+      --paper: #ffffff;
+      --soft: #f3f7f8;
+      --line: #dbe5e8;
+      --shadow: 0 18px 45px rgba(6, 42, 59, .12);
+      --radius: 20px;
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
     body {
       margin: 0;
       color: var(--ink);
       background: var(--paper);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.55;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
     }
-    img { display: block; max-width: 100%; }
+    img { max-width: 100%; display: block; }
     a { color: inherit; }
-    .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    button { font: inherit; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
 
-    .colour-band {
-      height: 18px;
-      background: linear-gradient(to bottom, var(--red) 0 50%, var(--yellow) 50% 100%);
+    .top-stripe {
+      height: 7px;
+      background: linear-gradient(90deg, var(--red) 0 50%, var(--yellow) 50% 100%);
     }
-
-    .site-header { background: var(--blue); color: white; }
-    .masthead {
-      min-height: 150px;
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      color: #fff;
+      background: rgba(6, 42, 59, .97);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, .18);
+      backdrop-filter: blur(10px);
+    }
+    .nav-shell {
+      min-height: 84px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 32px;
-      padding-block: 24px;
+      gap: 24px;
     }
-    .brand { display: flex; align-items: center; gap: 18px; text-decoration: none; }
-    .brand img { width: 104px; height: 104px; object-fit: contain; }
-    .brand-kicker { margin: 0 0 2px; color: var(--yellow); font: 700 .72rem/1.2 Arial, sans-serif; letter-spacing: .2em; }
-    .brand h1 { margin: 0; max-width: 690px; font-size: clamp(1.45rem, 3vw, 2.5rem); line-height: 1.08; font-weight: 600; }
-
-    .quick-links { display: grid; gap: 3px; text-align: right; font-size: 1.05rem; }
-    .quick-links a { text-decoration: none; }
-    .quick-links a:hover { color: var(--yellow); }
-
-    .nav-wrap { border-top: 1px solid rgb(255 255 255 / .22); background: #041f4b; }
-    .main-nav { min-height: 54px; display: flex; align-items: center; justify-content: space-between; }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-links a { color: white; text-decoration: none; font: 700 .82rem/1 Arial, sans-serif; letter-spacing: .075em; text-transform: uppercase; }
-    .nav-links a:hover { color: var(--yellow); }
-    .menu-toggle { display: none; border: 0; background: transparent; color: white; font-size: 1.6rem; cursor: pointer; }
-
-    .hero { padding: 68px 0 54px; text-align: center; }
-    .eyebrow { margin: 0 0 10px; color: var(--red); font: 800 .75rem/1.2 Arial, sans-serif; letter-spacing: .18em; text-transform: uppercase; }
-    .hero h2 { margin: 0; color: var(--blue); font: 800 clamp(2.5rem, 7vw, 5.8rem)/.93 Arial, sans-serif; letter-spacing: -.055em; }
-    .hero h2 span { color: var(--red); }
-    .hero-copy { max-width: 900px; margin: 26px auto 0; font-size: clamp(1.05rem, 2.1vw, 1.35rem); }
-    .hero-seal { width: min(250px, 55vw); margin: 32px auto 0; filter: drop-shadow(0 12px 12px rgb(6 44 104 / .17)); }
-    .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-    .button { display: inline-block; padding: 12px 20px; border: 2px solid var(--blue); text-decoration: none; font: 800 .78rem/1 Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
-    .button.primary { color: white; background: var(--blue); }
-    .button.primary:hover { background: var(--red); border-color: var(--red); }
-    .button.secondary:hover { color: white; background: var(--blue); }
-
-    .stripe-block { height: 76px; background: repeating-linear-gradient(to bottom, var(--red) 0 13px, var(--yellow) 13px 26px); }
-    .section { padding: 72px 0; }
-    .section-alt { background: #f2f5f8; }
-    .section-dark { color: white; background: var(--blue); }
-    .section h2 { margin: 0 0 28px; color: var(--blue); font: 800 clamp(2rem, 4vw, 3.45rem)/1.02 Arial, sans-serif; letter-spacing: -.035em; }
-    .section-dark h2 { color: white; }
-    .section-dark .eyebrow { color: var(--yellow); }
-    .intro-grid { display: grid; grid-template-columns: .9fr 1.4fr; gap: 68px; align-items: start; }
-    .prose { font-size: 1.12rem; }
-    .prose p:first-child { margin-top: 0; }
-
-    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; }
-    .date-note { padding-bottom: 31px; color: var(--muted); font-style: italic; }
-    .member-grid, .objectives-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .member-card { position: relative; min-height: 218px; padding: 28px; border-top: 7px solid var(--blue); background: white; box-shadow: 0 8px 25px rgb(18 33 59 / .08); }
-    .member-card:nth-child(3n + 2) { border-color: var(--red); }
-    .member-card:nth-child(3n) { border-color: var(--yellow); }
-    .flag-placeholder { width: 58px; height: 58px; display: grid; place-items: center; margin-bottom: 24px; overflow: hidden; border: 3px solid white; border-radius: 50%; outline: 2px solid #c9d0da; color: white; background: var(--blue); font: 800 .73rem/1 Arial, sans-serif; box-shadow: 0 5px 12px rgb(18 33 59 / .2); }
-    .flag-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-    .member-card h3 { margin: 0; color: var(--blue); font: 800 1.38rem/1.1 Arial, sans-serif; }
-    .member-card p { margin: 8px 0 18px; }
-    .member-card span { color: var(--red); font: 800 .7rem/1 Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
-
-    .leadership-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .leader-card { display: flex; gap: 20px; padding: 28px; border: 1px solid var(--line); background: white; }
-    .avatar { flex: 0 0 76px; height: 76px; display: grid; place-items: center; border-radius: 50%; color: white; background: var(--blue); font: 800 1.35rem Arial, sans-serif; box-shadow: 0 0 0 5px var(--yellow), 0 0 0 9px var(--red); }
-    .role { margin: 0 0 7px; color: var(--red); font: 800 .7rem/1 Arial, sans-serif; letter-spacing: .11em; }
-    .leader-card h3 { margin: 0; color: var(--blue); font: 800 1.5rem Arial, sans-serif; }
-    .leader-card p { margin: 3px 0; }
-    .leader-card small { color: var(--muted); }
-
-    .timeline { border-top: 1px solid rgb(255 255 255 / .25); }
-    .timeline-item { display: grid; grid-template-columns: 170px 1fr; gap: 34px; padding: 26px 0; border-bottom: 1px solid rgb(255 255 255 / .25); }
-    .timeline-item > span { color: var(--yellow); font: 800 .76rem/1 Arial, sans-serif; letter-spacing: .1em; }
-    .timeline h3 { margin: 0 0 5px; font: 800 1.25rem Arial, sans-serif; }
-    .timeline p { margin: 0; color: #dbe6f8; }
-
-    .objectives-grid > div { padding: 24px 0; border-top: 4px solid var(--red); }
-    .objectives-grid b { color: var(--yellow); -webkit-text-stroke: 1px var(--blue); font: 900 2.5rem/1 Arial, sans-serif; }
-    .objectives-grid h3 { margin: 12px 0 5px; color: var(--blue); font: 800 1.25rem Arial, sans-serif; }
-    .objectives-grid p { margin: 0; color: var(--muted); }
-
-    .charter { display: grid; grid-template-columns: 1.15fr .85fr; gap: 60px; align-items: center; }
-    .document-card { padding: 20px; border: 1px solid var(--line); background: white; box-shadow: 12px 12px 0 var(--yellow), 18px 18px 0 var(--red); text-align: center; }
-    .document-card img { max-height: 400px; margin: auto; object-fit: contain; }
-    .document-card h3 { margin: 18px 0 2px; color: var(--blue); font: 800 1.3rem Arial, sans-serif; }
-    .document-card p { margin: 0; color: var(--muted); }
-
-    .contact-card { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
-    .contact-box { padding: 28px; border-left: 8px solid var(--red); background: var(--blue); color: white; }
-    .contact-label { display: block; color: var(--yellow); font: 800 .7rem Arial, sans-serif; letter-spacing: .13em; }
-    .contact-box a { display: block; margin: 8px 0 18px; font-size: clamp(1rem, 2.2vw, 1.4rem); }
-    .contact-location { color: #cad8ed; }
-
-    footer { padding: 48px 0 26px; color: white; background: #041f4b; }
-    .footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 28px; }
-    .footer-brand { color: var(--yellow); font: 900 2.2rem Arial, sans-serif; }
-    footer p { margin: 5px 0; color: #cbd6e7; }
-    .copyright { margin-top: 34px; padding-top: 18px; border-top: 1px solid rgb(255 255 255 / .2); color: #aebbd0; font-size: .85rem; }
-
-    @media (max-width: 850px) {
-      .masthead { min-height: 126px; }
-      .brand img { width: 78px; height: 78px; }
-      .quick-links { display: none; }
-      .menu-toggle { display: block; margin-left: auto; }
-      .main-nav { position: relative; }
-      .nav-links { display: none; position: absolute; z-index: 5; top: 54px; left: -20px; right: -20px; padding: 18px 20px 24px; background: #041f4b; flex-direction: column; align-items: flex-start; gap: 18px; }
-      .nav-links.open { display: flex; }
-      .intro-grid, .charter, .contact-card { grid-template-columns: 1fr; gap: 32px; }
-      .member-grid, .objectives-grid { grid-template-columns: repeat(2, 1fr); }
-      .leadership-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
+    .brand { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+    .brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #fff;
+      padding: 3px;
+    }
+    .brand strong { display: block; font-size: 1.22rem; letter-spacing: .08em; }
+    .brand span { display: block; color: #cbe0e8; font-size: .68rem; letter-spacing: .08em; }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a {
+      padding: 10px 11px;
+      border-radius: 8px;
+      color: #e9f3f6;
+      font-size: .86rem;
+      font-weight: 650;
+      text-decoration: none;
+      transition: .2s ease;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--navy); background: var(--yellow); }
+    .nav-links .games-link { color: #fff; background: var(--red); }
+    .nav-links .games-link:hover, .nav-links .games-link.active { color: var(--navy); background: var(--yellow); }
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 10px;
+      color: #fff;
+      background: transparent;
+      font-size: 1.45rem;
+      cursor: pointer;
     }
 
-    @media (max-width: 560px) {
-      .container { width: min(100% - 28px, var(--max)); }
-      .brand { gap: 12px; }
-      .brand h1 { font-size: 1.18rem; }
-      .brand-kicker { font-size: .62rem; letter-spacing: .12em; }
-      .hero { padding-top: 48px; }
-      .hero h2 { font-size: clamp(2.35rem, 13vw, 4rem); }
-      .section { padding: 56px 0; }
-      .member-grid, .objectives-grid { grid-template-columns: 1fr; }
-      .section-heading { align-items: start; flex-direction: column; }
-      .date-note { padding: 0 0 20px; }
-      .timeline-item { grid-template-columns: 1fr; gap: 12px; }
-      .leader-card { align-items: flex-start; flex-direction: column; }
-      .footer-grid { grid-template-columns: 1fr; }
+    .hero {
+      min-height: 660px;
+      display: grid;
+      align-items: center;
+      color: #fff;
+      background:
+        radial-gradient(circle at 82% 22%, rgba(23,190,187,.30), transparent 30%),
+        linear-gradient(130deg, rgba(6,42,59,.98), rgba(11,64,87,.94));
+      overflow: hidden;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 64px; padding: 88px 0; }
+    .eyebrow { color: var(--yellow); font-weight: 800; letter-spacing: .14em; text-transform: uppercase; font-size: .8rem; }
+    .hero h1 { max-width: 760px; margin: 14px 0 18px; font-family: Georgia, serif; font-size: clamp(3rem, 7vw, 6.4rem); line-height: .98; }
+    .hero p { max-width: 690px; color: #d5e5ea; font-size: 1.1rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn { display: inline-block; padding: 13px 20px; border-radius: 10px; font-weight: 800; text-decoration: none; }
+    .btn-primary { color: var(--navy); background: var(--yellow); }
+    .btn-secondary { color: #fff; border: 1px solid rgba(255,255,255,.35); }
+    .hero-seal { width: min(360px, 82vw); margin: auto; filter: drop-shadow(0 30px 42px rgba(0,0,0,.3)); }
+
+    section { padding: 92px 0; }
+    section:nth-of-type(even) { background: var(--soft); }
+    .section-head { max-width: 760px; margin-bottom: 42px; }
+    .section-head h2 { margin: 8px 0 12px; color: var(--navy); font-family: Georgia, serif; font-size: clamp(2.2rem, 4vw, 3.5rem); line-height: 1.05; }
+    .section-head p { margin: 0; color: var(--muted); }
+    .rule { width: 84px; height: 6px; margin-top: 20px; background: linear-gradient(90deg, var(--red) 0 55%, var(--yellow) 55%); }
+    .about-grid, .charter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; align-items: center; }
+    .feature-box { padding: 28px; border-left: 6px solid var(--red); border-radius: 0 var(--radius) var(--radius) 0; background: #fff; box-shadow: var(--shadow); }
+    .feature-box strong { color: var(--navy); }
+
+    .members-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .member-card { padding: 24px 18px; border: 1px solid var(--line); border-radius: 18px; background: #fff; text-align: center; transition: .2s ease; }
+    .member-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .member-card img { width: 86px; height: 86px; margin: 0 auto 16px; object-fit: cover; border: 4px solid #fff; border-radius: 50%; box-shadow: 0 7px 22px rgba(6,42,59,.18); }
+    .member-card h3 { margin: 0; color: var(--navy); font-size: 1.02rem; }
+    .member-card p { margin: 6px 0 0; color: var(--muted); font-size: .82rem; }
+
+    .leaders { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .leader-card { padding: 30px; border-top: 6px solid var(--yellow); border-radius: var(--radius); color: #fff; background: var(--navy); box-shadow: var(--shadow); }
+    .leader-card .role { color: var(--yellow); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .leader-card h3 { margin: 8px 0 5px; font-size: 1.6rem; }
+    .leader-card p { margin: 0; color: #c8dce3; }
+
+    .timeline { display: grid; gap: 20px; }
+    .timeline-item { display: grid; grid-template-columns: 145px 1fr; gap: 26px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .timeline-date { color: var(--red); font-weight: 900; letter-spacing: .05em; }
+    .timeline-item h3 { margin: 0 0 5px; color: var(--navy); }
+    .timeline-item p { margin: 0; color: var(--muted); }
+
+    .objective-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: objective; }
+    .objective { counter-increment: objective; padding: 25px; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+    .objective::before { content: "0" counter(objective); display: block; color: var(--red); font-weight: 900; font-size: .85rem; }
+    .objective h3 { margin: 9px 0 6px; color: var(--navy); }
+    .objective p { margin: 0; color: var(--muted); }
+    .charter-image { border-radius: var(--radius); box-shadow: var(--shadow); }
+
+    .games-section {
+      color: #fff;
+      background:
+        radial-gradient(circle at 84% 15%, rgba(23,190,187,.35), transparent 33%),
+        linear-gradient(135deg, #041e42, #075985 60%, #087f70);
+    }
+    .games-section .section-head h2 { color: #fff; }
+    .games-section .section-head p { color: #d5e9ee; }
+    .games-hero { display: grid; grid-template-columns: 360px 1fr; gap: 55px; align-items: center; }
+    .games-logo { width: 100%; max-width: 350px; margin: auto; filter: drop-shadow(0 20px 35px rgba(0,0,0,.35)); }
+    .games-kicker { display: inline-block; padding: 7px 13px; border: 1px solid rgba(255,255,255,.32); border-radius: 999px; color: #8ff7ea; background: rgba(255,255,255,.08); font-size: .76rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .games-copy h2 { margin: 16px 0 4px; font-size: clamp(2.8rem, 6vw, 5rem); line-height: .95; }
+    .games-copy h3 { margin: 10px 0 18px; color: var(--yellow); font-size: 1.25rem; }
+    .games-copy > p { color: #d8edf1; }
+    .games-facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 28px 0; }
+    .fact { padding: 17px; border: 1px solid rgba(255,255,255,.16); border-radius: 14px; background: rgba(255,255,255,.09); }
+    .fact span { display: block; color: #91efe8; font-size: .72rem; text-transform: uppercase; }
+    .fact strong { display: block; margin-top: 5px; font-size: .9rem; }
+    .games-heading { margin: 42px 0 18px; font-size: 1.6rem; }
+    .events-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .event-card { padding: 17px; border-radius: 12px; color: var(--navy); background: #fff; font-weight: 850; text-align: center; }
+    .schedule-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .schedule-card { padding: 24px; border: 1px solid rgba(255,255,255,.17); border-radius: 18px; background: rgba(0,0,0,.14); }
+    .schedule-card h4 { margin: 0 0 15px; color: var(--yellow); font-size: 1.12rem; }
+    .schedule-card ul { margin: 0; padding-left: 20px; color: #e7f5f7; }
+    .schedule-card li + li { margin-top: 8px; }
+    .games-quote { margin: 34px 0 0; padding: 18px 22px; border-left: 5px solid var(--yellow); color: #fff4bd; background: rgba(0,0,0,.12); font-family: Georgia, serif; font-size: 1.35rem; font-style: italic; }
+
+    .contact-panel { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; padding: 42px; border-radius: var(--radius); color: #fff; background: var(--navy); box-shadow: var(--shadow); }
+    .contact-panel h2 { margin: 0 0 8px; font-family: Georgia, serif; font-size: 2.5rem; }
+    .contact-panel p { margin: 0; color: #c9dde4; }
+    .contact-panel a { color: var(--navy); background: var(--yellow); }
+    footer { padding: 34px 0; color: #b9cdd4; background: #031a25; text-align: center; }
+    footer p { margin: 5px 0; }
+
+    @media (max-width: 980px) {
+      .menu-toggle { display: grid; place-items: center; }
+      .nav-links {
+        position: absolute;
+        top: 84px;
+        left: 20px;
+        right: 20px;
+        display: none;
+        padding: 14px;
+        border: 1px solid rgba(255,255,255,.14);
+        border-radius: 14px;
+        background: var(--navy);
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: grid; }
+      .nav-links a { padding: 12px 14px; }
+      .hero-grid, .about-grid, .charter-grid, .games-hero { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .hero-grid { text-align: center; }
+      .hero p { margin-inline: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-seal { max-width: 270px; }
+      .members-grid { grid-template-columns: repeat(3, 1fr); }
+      .objective-grid { grid-template-columns: repeat(2, 1fr); }
+      .games-copy { text-align: center; }
+      .games-facts, .events-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 650px) {
+      .wrap { width: min(100% - 28px, 1160px); }
+      .brand span { display: none; }
+      .brand strong { font-size: 1rem; }
+      section { padding: 68px 0; }
+      .members-grid, .leaders, .objective-grid, .schedule-grid { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; gap: 5px; }
+      .games-facts, .events-grid { grid-template-columns: 1fr 1fr; }
+      .contact-panel { grid-template-columns: 1fr; padding: 30px; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <div class="colour-band" aria-hidden="true"></div>
+  <div class="top-stripe"></div>
   <header class="site-header">
-    <div class="container masthead">
+    <div class="wrap nav-shell">
       <a class="brand" href="#home" aria-label="ASEAM home">
         <img src="IMG_1928.png" alt="ASEAM emblem">
-        <div>
-          <p class="brand-kicker">OFFICIAL WEBSITE</p>
-          <h1>Association of Southeast Asian Micronations</h1>
-        </div>
+        <div><strong>ASEAM</strong><span>ASSOCIATION OF SOUTHEAST ASIAN MICRONATIONS</span></div>
       </a>
-      <div class="quick-links" aria-label="External links">
-        <a href="#members">Member States</a>
-        <a href="#charter">Founding Treaty</a>
-        <a href="#contact">Secretariat</a>
-      </div>
-    </div>
-    <div class="nav-wrap">
-      <nav class="container main-nav" aria-label="Main navigation">
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">☰</button>
-        <div class="nav-links" id="nav-links">
-          <a href="#about">About</a><a href="#members">Members</a><a href="#leadership">Leadership</a>
-          <a href="#history">History</a><a href="#objectives">Objectives</a><a href="#charter">Charter</a><a href="#contact">Contact</a>
-        </div>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#members">Members</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#history">History</a>
+        <a href="#objectives">Objectives</a>
+        <a href="#charter">Charter</a>
+        <a class="games-link" href="#games">2026 SEAM Games</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main id="home">
-    <section class="hero">
-      <div class="container">
-        <p class="eyebrow">Regional Micronational Organisation</p>
-        <h2>Welcome to <span>ASEAM</span></h2>
-        <img class="hero-seal" src="IMG_1928.png" alt="Emblem of ASEAM">
-        <p class="hero-copy">ASEAM brings Southeast Asian micronations together to promote cooperation, friendship, regionalism, mutual recognition, cultural exchange and peace.</p>
-        <div class="hero-actions"><a class="button primary" href="#members">Explore members</a><a class="button secondary" href="#about">Learn about ASEAM</a></div>
-      </div>
-    </section>
-    <div class="stripe-block" aria-hidden="true"></div>
-
-    <section id="about" class="section">
-      <div class="container intro-grid">
-        <div><p class="eyebrow">About the organisation</p><h2>A regional platform for micronations.</h2></div>
-        <div class="prose"><p>The <strong>Association of Southeast Asian Micronations</strong> (ASEAM) is an intermicronational regional organisation representing and connecting micronations in Southeast Asia.</p><p>The organisation was established following discussions among its founding members on 4 September 2026 and was formally established on 5 September 2026. It provides an active platform for cooperation and regional dialogue.</p></div>
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Regional cooperation · Friendship · Progress</div>
+          <h1>United across Southeast Asia.</h1>
+          <p>The Association of Southeast Asian Micronations is a regional organisation promoting diplomacy, cooperation and lasting friendship among Southeast Asian micronations.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#members">Explore our members</a><a class="btn btn-secondary" href="#games">2026 SEAM Games</a></div>
+        </div>
+        <img class="hero-seal" src="IMG_1928.png" alt="ASEAM official emblem">
       </div>
     </section>
 
-    <section id="members" class="section section-alt"><div class="container">
-      <div class="section-heading"><div><p class="eyebrow">Member states</p><h2>Seven members. One region.</h2></div><span class="date-note">As of 13 September 2026</span></div>
-      <div class="member-grid">
-        <article class="member-card"><div class="flag-placeholder"><img src="IMG_0838.png" alt="Flag of the Federal Republic of Huguma"></div><h3>Huguma</h3><p>Federal Republic of Huguma</p><span>Founding member</span></article>
-        <article class="member-card"><div class="flag-placeholder"><img src="IMG_1946.png" alt="Flag of Tanomadala"></div><h3>Tanomadala</h3><p>Republic of Tanomadala</p><span>Founding member</span></article>
-        <article class="member-card"><div class="flag-placeholder"><img src="IMG_1948.png" alt="Flag of Martland"></div><h3>Martland</h3><p>Empire Intan Martland</p><span>Founding member</span></article>
-        <article class="member-card"><div class="flag-placeholder"><img src="IMG_1951.png" alt="Flag of Great Hao"></div><h3>Great Hao</h3><p>Federal Empire of Great Hao</p><span>Member state</span></article>
-        <article class="member-card"><div class="flag-placeholder"><img src="IMG_1949.png" alt="Flag of Idelis"></div><h3>Idelis</h3><p>Confederal State of Idelis</p><span>Founding member</span></article>
-        <article class="member-card"><div class="flag-placeholder"><img src="IMG_1950.png" alt="Flag of Solisarasia"></div><h3>Solisarasia</h3><p>Solisarasia</p><span>Founding member</span></article>
-        <article class="member-card"><div class="flag-placeholder"><img src="IMG_1947.png" alt="Flag of Riveria"></div><h3>Riveria</h3><p>Riveria</p><span>Founding member</span></article>
+    <section id="about">
+      <div class="wrap about-grid">
+        <div class="section-head"><span class="eyebrow">About ASEAM</span><h2>A platform for regional micronational cooperation</h2><div class="rule"></div></div>
+        <div class="feature-box"><p>ASEAM brings together Southeast Asian micronations through dialogue, diplomacy, cultural exchange and shared regional initiatives. It provides members with a formal platform to develop friendly relations and pursue mutual goals.</p><p><strong>Headquarters:</strong> Bandar Mewar, Federal Republic of Huguma</p></div>
       </div>
-    </div></section>
+    </section>
 
-    <section id="leadership" class="section"><div class="container">
-      <p class="eyebrow">Organisation structure</p><h2>Leadership</h2>
-      <div class="leadership-grid">
-        <article class="leader-card"><div class="avatar">AZ</div><div><p class="role">Secretary-General</p><h3>Ammar Ziqrie</h3><p>Federal Republic of Huguma</p><small>In office since 5 September 2026</small></div></article>
-        <article class="leader-card"><div class="avatar">D</div><div><p class="role">Deputy Secretary-General</p><h3>Dave</h3><p>Tanomadala</p><small>In office since 5 September 2026</small></div></article>
+    <section id="members">
+      <div class="wrap">
+        <div class="section-head"><span class="eyebrow">Member states</span><h2>Seven nations, one association</h2><p>ASEAM currently consists of seven Southeast Asian micronational member states.</p><div class="rule"></div></div>
+        <div class="members-grid">
+          <article class="member-card"><img src="IMG_0838.png" alt="Flag of Huguma"><h3>Huguma</h3><p>Founding member</p></article>
+          <article class="member-card"><img src="IMG_1946.png" alt="Flag of Tanomadala"><h3>Tanomadala</h3><p>Member state</p></article>
+          <article class="member-card"><img src="IMG_1947.png" alt="Flag of Riveria"><h3>Riveria</h3><p>Member state</p></article>
+          <article class="member-card"><img src="IMG_1948.png" alt="Flag of Martland"><h3>Martland</h3><p>Member state</p></article>
+          <article class="member-card"><img src="IMG_1949.png" alt="Flag of Idelis"><h3>Idelis</h3><p>Member state</p></article>
+          <article class="member-card"><img src="IMG_1950.png" alt="Flag of Solisarasia"><h3>Solisarasia</h3><p>Member state</p></article>
+          <article class="member-card"><img src="IMG_1951.png" alt="Flag of Great Hao"><h3>Great Hao</h3><p>Joined 13 September 2026</p></article>
+        </div>
       </div>
-    </div></section>
+    </section>
 
-    <section id="history" class="section section-dark"><div class="container">
-      <p class="eyebrow">History</p><h2>From an idea to a regional organisation.</h2>
-      <div class="timeline">
-        <div class="timeline-item"><span>04 SEP 2026</span><div><h3>The idea</h3><p>Representatives discussed creating a regional organisation for closer cooperation and regular diplomatic relations.</p></div></div>
-        <div class="timeline-item"><span>05 SEP 2026</span><div><h3>Formal establishment</h3><p>The founding members agreed to establish the Association of Southeast Asian Micronations.</p></div></div>
-        <div class="timeline-item"><span>13 SEP 2026</span><div><h3>Seven-member ASEAM</h3><p>ASEAM is recorded as having seven member states.</p></div></div>
+    <section id="leadership">
+      <div class="wrap">
+        <div class="section-head"><span class="eyebrow">Leadership</span><h2>Serving the association</h2><div class="rule"></div></div>
+        <div class="leaders"><article class="leader-card"><span class="role">President</span><h3>Ammar Ziqrie</h3><p>Federal Republic of Huguma</p></article><article class="leader-card"><span class="role">Vice President</span><h3>Dave</h3><p>ASEAM Executive Leadership</p></article></div>
       </div>
-    </div></section>
+    </section>
 
-    <section id="objectives" class="section"><div class="container">
-      <p class="eyebrow">What we do</p><h2>Our objectives</h2>
-      <div class="objectives-grid">
-        <div><b>01</b><h3>Cooperation</h3><p>Promote cooperation between Southeast Asian micronations.</p></div><div><b>02</b><h3>Peace</h3><p>Maintain peaceful relations between member states.</p></div><div><b>03</b><h3>Diplomacy</h3><p>Encourage diplomatic communication and regional dialogue.</p></div><div><b>04</b><h3>Community</h3><p>Develop a stronger Southeast Asian micronational community.</p></div><div><b>05</b><h3>Culture</h3><p>Support cultural and social exchange between members.</p></div><div><b>06</b><h3>Common interests</h3><p>Encourage cooperation on matters of common interest.</p></div>
+    <section id="history">
+      <div class="wrap">
+        <div class="section-head"><span class="eyebrow">Our history</span><h2>From a shared idea to regional action</h2><div class="rule"></div></div>
+        <div class="timeline">
+          <article class="timeline-item"><div class="timeline-date">04 SEP 2026</div><div><h3>ASEAM established</h3><p>Regional micronations agreed to form an organisation devoted to cooperation and diplomacy.</p></div></article>
+          <article class="timeline-item"><div class="timeline-date">05 SEP 2026</div><div><h3>Treaty of Bandar Mewar</h3><p>The association's founding charter established its structure, principles and shared objectives.</p></div></article>
+          <article class="timeline-item"><div class="timeline-date">13 SEP 2026</div><div><h3>Great Hao joins</h3><p>Great Hao became ASEAM's seventh member state.</p></div></article>
+          <article class="timeline-item"><div class="timeline-date">24–25 OCT 2026</div><div><h3>Proposed 2026 SEAM Games</h3><p>Bandar Mewar is proposed to host the second South East Asian Micronational Games.</p></div></article>
+        </div>
       </div>
-    </div></section>
+    </section>
 
-    <section id="charter" class="section section-alt"><div class="container charter">
-      <div><p class="eyebrow">Founding document</p><h2>The Treaty of Bandar Mewar</h2><p>The Treaty of Bandar Mewar sets out the ratification, deposit and notification procedures governing the founding treaty of ASEAM.</p><p>It enters into force 30 days after the third founding state deposits its Instrument of Ratification. Additional states may then join by depositing an Instrument of Accession, subject to approval by the ASEAM Assembly.</p><a class="button primary" href="IMG_1929.png" target="_blank" rel="noopener">View charter</a></div>
-      <div class="document-card"><img src="IMG_1929.png" alt="Treaty of Bandar Mewar"><h3>Treaty of Bandar Mewar</h3><p>Ratification, Deposit and Notification Procedures</p></div>
-    </div></section>
+    <section id="objectives">
+      <div class="wrap">
+        <div class="section-head"><span class="eyebrow">Objectives</span><h2>What ASEAM works to achieve</h2><div class="rule"></div></div>
+        <div class="objective-grid">
+          <article class="objective"><h3>Regional diplomacy</h3><p>Maintain constructive relations and regular dialogue among members.</p></article>
+          <article class="objective"><h3>Peace and friendship</h3><p>Resolve disagreements respectfully and strengthen mutual trust.</p></article>
+          <article class="objective"><h3>Cultural exchange</h3><p>Celebrate the identities, traditions and creativity of member states.</p></article>
+          <article class="objective"><h3>Shared development</h3><p>Support useful projects that benefit the wider ASEAM community.</p></article>
+          <article class="objective"><h3>International presence</h3><p>Represent Southeast Asian micronational interests responsibly.</p></article>
+          <article class="objective"><h3>Youth and sport</h3><p>Create accessible activities such as the SEAM Games to unite citizens.</p></article>
+        </div>
+      </div>
+    </section>
 
-    <section id="contact" class="section"><div class="container contact-card">
-      <div><p class="eyebrow">Contact the Secretariat</p><h2>Get in touch with ASEAM.</h2><p>For diplomatic communication, membership enquiries, regional cooperation or other official matters, contact the ASEAM Secretariat.</p></div>
-      <div class="contact-box"><span class="contact-label">Official email</span><a href="mailto:aseam.org.gov@gmail.com">aseam.org.gov@gmail.com</a><span class="contact-location">Headquarters · Bandar Mewar</span></div>
-    </div></section>
+    <section id="charter">
+      <div class="wrap charter-grid">
+        <img class="charter-image" src="IMG_1929.png" alt="Treaty of Bandar Mewar">
+        <div><div class="section-head"><span class="eyebrow">Founding charter</span><h2>The Treaty of Bandar Mewar</h2><p>The Treaty of Bandar Mewar is the founding document of ASEAM. It defines the association's commitment to sovereignty, cooperation, peaceful relations and collective progress.</p><div class="rule"></div></div></div>
+      </div>
+    </section>
+
+    <section class="games-section" id="games">
+      <div class="wrap">
+        <div class="games-hero">
+          <img class="games-logo" src="SEAM Games 2026 Unity Flame Emblem.png" alt="2026 SEAM Games logo">
+          <div class="games-copy">
+            <span class="games-kicker">Official ASEAM sporting event</span>
+            <h2>2026 SEAM Games</h2>
+            <h3>South East Asian Micronational Games</h3>
+            <p>The proposed second SEAM Games will bring ASEAM delegations together for online sporting and strategy competitions hosted by Bandar Mewar, Federal Republic of Huguma.</p>
+            <div class="games-facts"><div class="fact"><span>Host city</span><strong>Bandar Mewar</strong></div><div class="fact"><span>Host nation</span><strong>Huguma</strong></div><div class="fact"><span>Dates</span><strong>24–25 October</strong></div><div class="fact"><span>Format</span><strong>Online</strong></div></div>
+            <blockquote class="games-quote">“Unity Through Competition”</blockquote>
+          </div>
+        </div>
+
+        <h3 class="games-heading">Proposed official events</h3>
+        <div class="events-grid"><div class="event-card">HaxBall</div><div class="event-card">Chess</div><div class="event-card">Checkers</div><div class="event-card">Connect Four</div><div class="event-card">TETR.IO</div><div class="event-card">Skribbl.io</div><div class="event-card">Gartic Phone</div><div class="event-card">MicroSEA Quiz</div></div>
+
+        <h3 class="games-heading">October 2026 timeline</h3>
+        <div class="schedule-grid">
+          <article class="schedule-card"><h4>Preparation</h4><ul><li>1 October — Official announcement</li><li>1–10 October — Delegation registration</li><li>11 October — Registration closes</li><li>12 October — Official rules published</li><li>13–17 October — Practice and technical testing</li><li>18 October — Tournament brackets released</li><li>23 October — Delegation briefing</li></ul></article>
+          <article class="schedule-card"><h4>Games and results</h4><ul><li>24 October — Opening ceremony and Day One</li><li>25 October — Day Two, finals and closing ceremony</li><li>26 October — Medal table and official results</li><li>31 October — Final report and certificates</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap"><div class="contact-panel"><div><h2>ASEAM Secretariat</h2><p>Headquarters · Bandar Mewar</p><p>Official email · aseam.org.gov@gmail.com</p></div><a class="btn" href="mailto:aseam.org.gov@gmail.com">Contact ASEAM</a></div></div>
+    </section>
   </main>
 
-  <div class="stripe-block" aria-hidden="true"></div>
-  <footer><div class="container footer-grid"><div><div class="footer-brand">ASEAM</div><p>Association of Southeast Asian Micronations</p></div><div><strong>Headquarters</strong><p>Bandar Mewar</p></div><div><strong>Established</strong><p>5 September 2026</p></div><div><strong>Official languages</strong><p>Malay · Tagalog · English · Indonesian</p></div></div><div class="container copyright">© 2026 Association of Southeast Asian Micronations. All rights reserved.</div></footer>
+  <footer><div class="wrap"><p><strong>Association of Southeast Asian Micronations</strong></p><p>© <span id="year">2026</span> ASEAM. All rights reserved.</p></div></footer>
 
   <script>
     const toggle = document.querySelector('.menu-toggle');
     const links = document.querySelector('.nav-links');
-    toggle.addEventListener('click', () => {
+    const navItems = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('main section[id]');
+
+    toggle?.addEventListener('click', () => {
       const open = links.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(open));
       toggle.textContent = open ? '×' : '☰';
     });
-    links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+
+    navItems.forEach(link => link.addEventListener('click', () => {
       links.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.textContent = '☰';
+      toggle?.setAttribute('aria-expanded', 'false');
+      if (toggle) toggle.textContent = '☰';
     }));
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navItems.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+
+    sections.forEach(section => observer.observe(section));
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
